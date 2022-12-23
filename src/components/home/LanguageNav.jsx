@@ -1,11 +1,12 @@
-import { useMemo } from "react";
-const LanguageNav = ({ handleLanguage }) => {
-    const languages = useMemo(() => ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python',"Vue","Rust","Node","Sql","Go",""], []);
+import React, { useMemo } from "react";
+import PropTypes from 'prop-types';
+const LanguageNav = ({ handleLanguage, active }) => {
+    const languages = useMemo(() => ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python', "Vue", "Rust", "Node", "Sql", "Go",], []);
     return (
         <ul className="flex justify-center gap-4 text-l font-mono font-bold border-2 border-red-700">
             {
                 languages.map((language) => (<li key={language}>
-                    <button className="bg-blue-600"
+                    <button className={`${active === language ? "text-red-600 hover:text-amber-500" : "hover:text-purple-500"}`}
                         onClick={(e) => handleLanguage(e.target.innerText)}
                     >
                         {language}
@@ -15,5 +16,11 @@ const LanguageNav = ({ handleLanguage }) => {
         </ul>
     )
 }
+
+LanguageNav.propTypes = {
+    active: PropTypes.string.isRequired,
+    handleLanguage: PropTypes.func.isRequired,
+    languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default LanguageNav;

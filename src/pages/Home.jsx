@@ -1,4 +1,4 @@
-import { Fragment, useState, useCallback, useEffect } from "react"
+import React, { Fragment, useState, useCallback, useEffect } from "react"
 import LanguageNav from "../components/home/LanguageNav";
 import { fetchRepos } from "../services/repos";
 import "../animation.css"
@@ -24,7 +24,8 @@ const Home = () => {
 
     return (
         <Fragment>
-            <LanguageNav handleLanguage={handleLanguage} />
+            <h1>{language}</h1>
+            <LanguageNav active={language} handleLanguage={handleLanguage} />
             <Card repos={repos} />
         </Fragment>
     )

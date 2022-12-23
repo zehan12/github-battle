@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
+import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
+import { GoRepo } from 'react-icons/go'
+import { ListItem } from './IconList';
+import React, { useState } from 'react'
+
 
 const Card = ({ repos }) => {
     return (
-        <div className="mx-0 flex flex-wrap justify-center gap-4">
+        <div className="mx-0 flex flex-wrap justify-center gap-4"
+            style={{ width: "100%" }}>
             {
-                repos && repos.map((a, i) => (
+                repos && repos.map((repo, i) => (
                     <div
-                        key={a.id} className="animation bg-[#ebebeb] mx-0 my-2 p-5 w-64"
-                        style={{ flex: " flex: 0 1 22%" }}
+                        key={repo.id} className="animation bg-[#ebebeb] mx-0 my-2 p-5 w-80"
+                        style={{ flex: " flex: 0 1 30%" }}
                     >
                         <div className="text-center">
                             <span className="text-2xl text-black">{`#${i + 1}`} </span>
@@ -16,44 +22,25 @@ const Card = ({ repos }) => {
                             <img
                                 style={{ width: "100%" }}
                                 className="align-middle w-10"
-                                src={`${a.owner.avatar_url}`}
-                                alt={`${a.id}`}
+                                src={`${repo.owner.avatar_url}`}
+                                alt={`${repo.id}`}
                             />
                         </div>
-                        <h3 className="font-extrabold text-lg my-4 text-center">{a.name}</h3>
-                        <ul>
-                            <li>
-                                <span className="bg-[#ffbf74]">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <span className="font-extrabold text-lg">{a.name}</span>
-                            </li>
-                            <li>
-                                <span className="bg-[#ffbf74]">
-                                    <i class="fas fa-star"></i>
-                                </span>
-                                <span className="text-lg ml-3 leading-3">{a.stargazers_count} stars</span>
-                            </li>
-                            <li>
-                                <span className="share">
-                                    <i class="fas fa-share-alt"></i>
-                                </span>
-                                <span className="text-lg ml-3 leading-3">{a.forks_count} forks</span>
-                            </li>
-                            <li>
-                                <span className="triangle">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
-                                <span className="text-lg ml-3 leading-3">
-                                    {a.open_issues_count} open issues
-                                </span>
-                            </li>
+                        <h3 className="font-extrabold text-lg my-4 text-center text-red-700">{repo.name}</h3>
+                        <ul className="flex flex-col gap-2">
+                            <ListItem color={"#FFBF74"} Icon={FaUser} count={repo.owner.login} />
+                            <ListItem color={"red"} Icon={GoRepo} count={repo.name} />
+                            <ListItem color={"#FFD700"} text={"stars"} Icon={FaStar} count={repo.stargazers_count} />
+                            <ListItem color={"#81C3F5"} text={"forks"} Icon={FaCodeBranch} count={repo.forks_count} />
+                            <ListItem color={"red"} text={"open"} Icon={FaExclamationTriangle} count={repo.open_issues_count} />
                         </ul>
+                        <a href={repo.html_url}>OPEN</a>
                     </div>)
                 )
             }
         </div>)
 }
+
 
 Card.propTypes = {
     repos: PropTypes.arrayOf(PropTypes.shape({
@@ -61,11 +48,16 @@ Card.propTypes = {
         name: PropTypes.string.isRequired,
         owner: PropTypes.shape({
             avatar_url: PropTypes.string.isRequired,
+            login: PropTypes.string.isRequired,
         }).isRequired,
+        html_url: PropTypes.string.isRequired,
         stargazers_count: PropTypes.number.isRequired,
         forks_count: PropTypes.number.isRequired,
         open_issues_count: PropTypes.number.isRequired,
     })).isRequired,
 };
 
+Card.defaultProps = {
+    repos: [],
+};
 export default Card;

@@ -2,25 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   border: 1px solid black;
   box-sizing: border-box;
   outline: 1px solid red;
   outline-offset: -1px;
-}
-/* 
-.lista-item{
-  transform: scale(1);
-  transform-origin: center;
-  animation-name: manotas;
-  animation-duration: 600ms;
-  animation-delay: 100ms;
-  animation-direction: normal;
-  transition: 400ms;
-}
-.lista-item:hover{
-  transform: scale(1.01);
-  transition: 400ms;
-  box-shadow: inset -5px -5px 360px white ,
-                    2px 5px 5px rgba(0,0,0,.4);
 } */
