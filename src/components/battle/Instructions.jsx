@@ -3,7 +3,6 @@ import {
     FaUserFriends,
     FaFighterJet,
     FaTrophy,
-    FaTimesCircle,
 } from "react-icons/fa";
 
 const steps = [
@@ -46,5 +45,4 @@ const Instructions = () => {
         </div>
     )
 }
-
 export default Instructions;
