@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './reset.css'
+import Main from './container/Main'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-     <h1 className='text-red-700 font-mono'>z</h1>
+    <div className="App font-sans mx-40 my-10">
+      <Main />
     </div>
   )
 }
