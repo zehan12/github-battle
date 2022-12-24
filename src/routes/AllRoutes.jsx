@@ -7,8 +7,8 @@ const AllRoutes = () => {
     return (
         <Fragment>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/battle" element={<Battle />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/battle" element={<Battle />} />
             </Routes>
         </Fragment>
     )

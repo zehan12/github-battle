@@ -13,7 +13,9 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-flags-select": "^2.2.3",
     "react-icons": "^4.7.1",
+    "react-languages-select": "^1.0.20",
     "react-router-dom": "^6.6.0"
   },
   "devDependencies": {

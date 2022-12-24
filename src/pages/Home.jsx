@@ -24,7 +24,6 @@ const Home = () => {
 
     return (
         <Fragment>
-            <h1>{language}</h1>
             <LanguageNav active={language} handleLanguage={handleLanguage} />
             <Card repos={repos} />
         </Fragment>

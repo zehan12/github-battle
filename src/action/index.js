@@ -1,0 +1,3 @@
+// Action Types
+export const DARK = 'DARK';
+export const LIGHT = 'LIGHT';

@@ -8,6 +8,7 @@ const Battle = () => {
     return (
         <Fragment>
             <Instructions />
+            <App  />
         </Fragment>
     )
 }
