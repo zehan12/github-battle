@@ -3,16 +3,19 @@ import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons
 import { GoRepo } from 'react-icons/go'
 import { ListItem } from './IconList';
 import React, { useState } from 'react'
+import SkeletonCard from '../../skeletons/SkeletonCard';
+import 'animate.css';
 
+const Card = ({ repos, loading }) => {
+    const _ = [...Array(10).keys()]
 
-const Card = ({ repos }) => {
     return (
         <div className="mx-0 flex flex-wrap justify-center gap-4"
             style={{ width: "100%" }}>
             {
-                repos && repos.map((repo, i) => (
+                (repos !== null && !loading) ? repos.map((repo, i) => (
                     <div
-                        key={repo.id} className="animation bg-[#ebebeb] mx-0 my-2 p-5 w-80"
+                        key={repo.id} className="animate__animated animate__bounce bg-[#ebebeb] mx-0 my-2 p-5 w-80"
                         style={{ flex: " flex: 0 1 30%" }}
                     >
                         <div className="text-center">
@@ -35,9 +38,11 @@ const Card = ({ repos }) => {
                             <ListItem color={"red"} text={"open"} Icon={FaExclamationTriangle} count={repo.open_issues_count} />
                         </ul>
                         <a href={repo.html_url}>OPEN</a>
-                    </div>)
-                )
+                    </div>))
+                    : loading === true ? _.map((v) => <SkeletonCard />) : <h1>Something went Wrong</h1>
+
             }
+
         </div>)
 }
 
@@ -49,12 +54,12 @@ Card.propTypes = {
         owner: PropTypes.shape({
             avatar_url: PropTypes.string.isRequired,
             login: PropTypes.string.isRequired,
-        }).isRequired,
+        }),
         html_url: PropTypes.string.isRequired,
         stargazers_count: PropTypes.number.isRequired,
         forks_count: PropTypes.number.isRequired,
         open_issues_count: PropTypes.number.isRequired,
-    })).isRequired,
+    }))
 };
 
 Card.defaultProps = {

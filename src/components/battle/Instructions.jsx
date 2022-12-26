@@ -30,6 +30,7 @@ const Instructions = () => {
     return (
         <div className="mt-10">
             <h1 className="text-6xl font-extralight text-center">Instructions</h1>
+
             <div className="flex justify-center gap-20 mt-10 text-center font-thin">
                 {
                     steps.map((step) => (

@@ -1,6 +1,5 @@
 import { Fragment, useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "react-languages-select/css/react-languages-select.css";
 import ReactFlagsSelect from "react-flags-select";
 import { Gb } from "react-flags-select";
 import { StateContext } from "../../context/store";
@@ -17,13 +16,13 @@ const Header = () => {
         setTheme(!theme);
     }
 
-    console.log(`Language:${selected}, Theme:${theme} ` ,dispatch, state, actions)
+    console.log(`Language:${selected}, Theme:${theme} `, dispatch, state, actions)
     return (
         <Fragment>
             <nav className="flex justify-between items-center">
                 <ul className="flex gap-2 text-l font-semibold">
-                    <li className="text-red-700">
-                        <NavLink to="/"> Home </NavLink>
+                    <li  className="text-red-700 ">
+                        <NavLink to="/" className="a-bomb"> Home </NavLink>
                     </li>
                     <li>
                         <NavLink to="/battle">Battle</NavLink>

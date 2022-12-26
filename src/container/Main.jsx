@@ -4,7 +4,9 @@ import AllRoutes from "../routes/AllRoutes";
 import ErrorBoundary from "../error/ErrorBoundary";
 import { StateContext } from "../context/store";
 import { initialState, stateReducer } from "../reducer";
+import 'animate.css';
 const LazyHeader = lazy(() => import("../components/common/Header"));
+
 
 const Main = () => {
     const [state, dispatch] = useReducer(stateReducer, initialState);

@@ -6,6 +6,13 @@ const fetchRepos =  async ( tag ) => {
     return res
 }
 
+const getUserData =  async( username ) => {
+    const res = await axios.get(`https://api.github.com/users/${username}`);
+    console.log(res,"userdata")
+    return res;
+}
+
 export {
-    fetchRepos
+    fetchRepos,
+    getUserData
 };

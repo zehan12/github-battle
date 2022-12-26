@@ -1,12 +1,14 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react"
 import LanguageNav from "../components/home/LanguageNav";
-import { fetchRepos } from "../services/repos";
+import { fetchRepos } from "../services/APIs";
 import "../animation.css"
 import Card from "../components/home/Card";
+import SkeletonCard from "../skeletons/SkeletonCard";
 
 const Home = () => {
     const [language, setLanguage] = useState("All");
-    const [repos, setRepos] = useState(null)
+    const [repos, setRepos] = useState(null);
+    const [loading, setLoading] = useState(false)
 
     const handleLanguage = useCallback((tag) => {
         setLanguage(tag)
@@ -14,9 +16,11 @@ const Home = () => {
     }, [])
 
     const showRepos = async (language) => {
+        setRepos(null)
+        setLoading(true)
         const { data: { items } } = await fetchRepos(language);
-        console.log(items)
         setRepos(items)
+        setLoading(false)
 
     }
 
@@ -25,7 +29,7 @@ const Home = () => {
     return (
         <Fragment>
             <LanguageNav active={language} handleLanguage={handleLanguage} />
-            <Card repos={repos} />
+            <Card repos={repos} loading={loading} />
         </Fragment>
     )
 }
