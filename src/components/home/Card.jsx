@@ -4,7 +4,6 @@ import { GoRepo } from 'react-icons/go'
 import { ListItem } from './IconList';
 import React, { useState } from 'react'
 import SkeletonCard from '../../skeletons/SkeletonCard';
-import 'animate.css';
 
 const Card = ({ repos, loading }) => {
     const _ = [...Array(10).keys()]

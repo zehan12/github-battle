@@ -9,14 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "all-animation": "^3.0.6",
     "animate.css": "^4.1.1",
     "axios": "^1.2.1",
+    "i18next": "^22.4.8",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-xhr-backend": "^3.2.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-flags-select": "^2.2.3",
+    "react-github-btn": "^1.4.0",
+    "react-i18next": "^12.1.1",
     "react-icons": "^4.7.1",
+    "react-rewards": "^2.0.4",
     "react-router-dom": "^6.6.0"
   },
   "devDependencies": {

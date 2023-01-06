@@ -1,7 +1,8 @@
 import * as actions from "../action/index";
 
 export const initialState = {
-    theme: "light"
+    theme: "light",
+    language: "GB",
 }
 
 export function stateReducer(state = initialState, action) {
@@ -11,7 +12,10 @@ export function stateReducer(state = initialState, action) {
             return { ...state, theme: "light" };
         case actions.DARK:
             // localStorage.setItem("dark", true);
-            return { ...state, theme: true };
+            return { ...state, theme: "dark" };
+        case actions.LANGUAGE:
+            console.log(action, "action in language")
+            return { ...state, language: action.language }
         default:
             return state;
     }

@@ -1,23 +1,25 @@
 import React, { Fragment, useState } from "react"
 import Instructions from "../components/battle/Instructions";
 import { getUserData } from "../services/APIs";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { GiBattleAxe } from "react-icons/gi";
+
 
 const Battle = () => {
-    const initialPlayerState = {
-        playerOne: null,
-        playerTwo: null,
-    }
-    const [players, setPlayers] = useState(initialPlayerState);
 
-    const Navigate = useNavigate();
+    const [players, setPlayers] = useState({
+        playerOne: null, playerTwo: null
+    });
 
     const handleSubmit = async (event, username, player) => {
         event.preventDefault();
-        console.log(players, "state")
-        const { data } = await getUserData(username);
-        setPlayers({ ...players, [player]: data })
-        console.log(players, "after submit")
+        try {
+            const { data } = await getUserData(username);
+            setPlayers({ ...players, [player]: data })
+        } catch (error) {
+            // Handle error if API call fails
+            console.error(error);
+        }
     }
 
     const handleRemovePlayer = (player) => {
@@ -77,12 +79,17 @@ const Battle = () => {
                 {
                     (players.playerTwo !== null && players.playerOne !== null) &&
                     <div>
-                        <button
-    onClick={Navigate(`/battle/result?p1=${players.playerOne.login}&p2=${players.playerTwo.login}`)}
-                            type="button" class="py-2 px-20  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase">
-                            Battle
+                        <Link to={`/battle/result?p1=${players.playerOne.login}&p2=${players.playerTwo.login}`}
+                        >
 
-                        </button>
+                            <button
+                                type="button" class="flex items-center gap-5 py-2 px-20  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase">
+                                <GiBattleAxe />
+
+                                Battle
+
+                            </button>
+                        </Link>
                     </div>
                 }
             </div>

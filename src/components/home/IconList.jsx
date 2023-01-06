@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 export const ListItem = ({ Icon, text, count, color }) => (
-    <li className='flex gap-4 items-center'>
+    <li className='flex gap-4 items-center' style={{ width: "200px" }} >
         <Icon size={25} color={color} />
         <span
             className={`text-lg ${typeof (count) === "number" ? "" : "font-semibold"}`}>
             {
                 typeof (count) === "number" ? count.toLocaleString()
-                    : count.charAt(0).toUpperCase() + count.slice(1)
-            } 
-            {typeof (count) === "number" ? "  "+text : ""}
+                    : count
+            }
+            {typeof (count) === "number" ? "  " + text : ""}
         </span>
     </li>
 );
