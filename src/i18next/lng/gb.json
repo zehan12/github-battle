@@ -1,8 +1,20 @@
 {
-    "home":"Home",
-    "battle":"Battle",
-    "contribution":"Contribution",
-    "report a bug":"Report a bug",
+    "home": "Home",
+    "battle": "Battle",
+    "contribution": "Contribution",
+    "report a bug": "Report a bug",
     "star": "Star",
-    "made with":"Made with"
+    "made with": "Made with",
+    "instructions": "instructions",
+    "enter two github users": "Enter two Github users",
+    "see the winner": "See the winner",
+    "players": "Players",
+    "player one": "player one",
+    "player two": "player two",
+    "github username": "github username",
+    "submit": "submit",
+    "winner": "Winner",
+    "loser": "Loser",
+    "score": "Score",
+    "reset": "RESET"
 }

@@ -31,7 +31,7 @@ const Header = () => {
                 <div className="flex items-center gap-7">
                     <ReactFlagsSelect
                         className="flags"
-                        countries={["GB", "ES"]}
+                        countries={["GB", "ES","JP"]}
                         placeholder={<Gb />}
                         showOptionLabel={false}
                         showSelectedLabel={false}

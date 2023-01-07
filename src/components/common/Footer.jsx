@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 const Footer = () => {
     const { t } = useTranslation()
-    const { dispatch, state: { theme } } = useContext(StateContext);
+    const { state: { theme } } = useContext(StateContext);
     return (
         <footer
             className={`${theme === 'dark' ? "text-gray-300 bg-blue-800" : "text-gray-800 bg-gray-100"

@@ -1,4 +1,20 @@
 {
-    "home":"Casa",
-    "battle":"Batalla"
-}
+    "home": "Casa",
+    "battle": "Batalla",
+    "contribution": "Contribución",
+    "report a bug": "Reportar un error",
+    "star": "Estrella",
+    "made with": "Hecho con",
+    "instructions": "Instrucciones",
+    "enter two eithub users": "Ingrese dos usuarios de Github",
+    "see the winner": "Vea al ganador",
+    "players": "Jugadores",
+    "player one": "jugador uno",
+    "player two": "jugador dos",
+    "github username": "nombre de usuario de github",
+    "submit": "enviar",
+    "winner": "Ganador",
+    "loser": "Perdedor",
+    "score": "Puntuación",
+    "reset": "reiniciar"
+    }

@@ -3,9 +3,12 @@ import Instructions from "../components/battle/Instructions";
 import { getUserData } from "../services/APIs";
 import { Link } from "react-router-dom";
 import { GiBattleAxe } from "react-icons/gi";
+import { useTranslation } from "react-i18next";
 
 
 const Battle = () => {
+
+    const {t} = useTranslation()
 
     const [players, setPlayers] = useState({
         playerOne: null, playerTwo: null
@@ -32,13 +35,14 @@ const Battle = () => {
             <Instructions />
             <div className="flex flex-col justify-center items-center">
                 <div>
-                    <h3 className="text-4xl font-thin text-center">Players</h3>
+                    <h3 className="text-4xl font-thin text-center">{t("players")}</h3>
                 </div>
                 <div
                     className="grid grid-cols-2 gap-3 justify-items-center place-items-start"
-                    style={{ border: "2px solid hotpink", width: "90%" }}>
+                    style={{ width: "90%" }}
+                    >
                     <div className="flex flex-col items-">
-                        <h4 className="my-2 left-1">Player_One</h4>
+                        <h4 className="my-2 left-1">{t("player one")}</h4>
                         {
                             players.playerOne === null
                                 ?
@@ -58,7 +62,7 @@ const Battle = () => {
                         }
                     </div>
                     <div>
-                        <h4 className="my-2">Player_Two</h4>
+                        <h4 className="my-2">{t("player two")}</h4>
                         {
                             players.playerTwo === null
                                 ?
@@ -86,7 +90,7 @@ const Battle = () => {
                                 type="button" class="flex items-center gap-5 py-2 px-20  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase">
                                 <GiBattleAxe />
 
-                                Battle
+                                {t("battle")}
 
                             </button>
                         </Link>
@@ -102,6 +106,7 @@ const PlayerInput = ({
     handleSubmit
 }) => {
     const [username, setUsername] = useState("");
+    const {t} = useTranslation()
 
     return (
         <Fragment>
@@ -110,13 +115,13 @@ const PlayerInput = ({
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                     type="text"
-                    className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    placeholder="github username"
+                    className="shadow appearance-none border   py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder={t("github username")}
                 />
                 <button
                     onClick={(event) => handleSubmit(event, username, player)}
                     className="bg-gray-200 py-2 px-10 uppercase text-gray-500">
-                    submit
+                    {t("submit")}
                 </button>
             </div>
         </Fragment >
